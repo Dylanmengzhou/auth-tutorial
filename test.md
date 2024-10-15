@@ -1,0 +1,141 @@
+# data
+## user.ts
+### db(@/lib/db)
+lib
+    db.ts
+        PrismaClient(@prisma/client)
+    utils.ts
+prisma
+    schema.prisma
+    ｜ ​prisma.schema​ 
+schemas
+    index.ts
+        *(zod)
+.env
+middleware.ts
+    authConfig(auth.config)
+    DEFAULT_LOGIN_REDIRECT(@/routes)
+    apiAuthPrefix(@/routes)
+    authRoutes(@/routes)
+    publicRoutes(@/routes)
+    NextAuth(next-auth)
+nuxt-auth.d.ts
+    UserRole(@prisma/client)
+    DefaultSession(next-auth)
+routes.ts
+auth.ts
+    authConfig(auth.config)
+    db(@/lib/db)
+    getUserById(@/data/user)
+    PrismaAdapter(@auth/prisma-adapter)
+    NextAuth(next-auth)
+auth.config.ts
+    getUserByEmail(@/data/user)
+    LoginSchema(@/schemas)
+    NextAuthConfig(next-auth)
+    Credentials(next-auth/providers/credentials)
+    Github(next-auth/providers/github)
+    Google(next-auth/providers/google)
+    bcrypt(bcryptjs)
+actions
+    login.ts(server)
+        LoginSchema(@/schemas)
+        DEFAUKT_LOGIN_REDIRECT(@/routes)
+        ｜
+        signIn(@/auth)
+        AuthError(next-auth)
+        *(zod)
+    register.ts
+        RegisterSchema(@/schemas)
+        db(@/lib/db)
+        getUserByEmail(@/data/user)
+        bcrypt(bcryptjs)
+        *(zod)
+app
+    auth
+        error Page
+            error-card
+        register Page
+            register-form
+        login Page
+        ｜
+            login-form
+    root Page
+        LoginButton
+    (protected)
+        Settings Page
+    api
+        auth
+            [...nextauth]
+                route.ts
+                    handlers(@/auth)
+components
+    auth
+        back-button
+            Button
+            Link
+        card-wrapper
+            Card
+            CardContent
+            CardFooter
+            CardHeader
+            Header
+            Social
+            BackButton
+        error-card
+        header
+        login-button
+        login-form
+            CardWrapper
+            Input
+            Button
+            Form
+            FormControl
+            FormField
+            FormItem
+            FormLabel
+            Formmessage
+            FormError
+            FormSuccess
+            LoginSchema(@/schemas)
+            login(@/actions/login)
+            zodResolver(@hookform/resolvers/zod)
+            useSearchParams(next/navigation)
+            *(zod)
+            useState(react)
+            useTransition(react)
+        register-form
+            CardWrapper
+            Input
+            Button
+            ｜
+            Form
+            FormControl
+            FormField
+            FormItem
+            FormLabel
+            FormMessage
+            FormSuccess
+            register(@/actions/register)
+            RegisterSchema(@/schemas)
+            zodResolver(@hookform/resolvers/zod)
+            useState(react)
+            useTransition(react)
+            *(zod)
+        social
+            Button
+            FcGoogle
+            FaGithub
+            DEFAUKT_LOGIN_REDIRECT(@/routes)
+            ｜
+            signIn(@/auth)
+    ui
+        button
+        card
+        form
+        input
+        label
+    form-error
+        ExclamationTriangleIcon
+    form-success
+        CheckCircledIcon
